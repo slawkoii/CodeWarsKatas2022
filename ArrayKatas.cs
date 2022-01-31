@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeWarsKatas2022
 {
-    internal class ArrayKatas
+    public class ArrayKatas
     {
         public static int Min(int[] list) => list.Min();
         public static int Max(int[] list) => list.Max();

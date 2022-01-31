@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeWarsKatas2022
 {
-    internal class ListKatas
+    public class ListKatas
     {
         public static List<int> PipeFix(List<int> numbers)
         {

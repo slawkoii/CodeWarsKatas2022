@@ -10,7 +10,7 @@ namespace CodeWarsKatas2022
         static void Main(string[] args)
         {
             var arr = new object[] { 'a', 'b', 'c', 'd', 'e' };
-            object[] toShow = ArrayKatas.TakeFirstElements(arr, 2);
+            object[] toShow = ArrayKatas.TakeFirstElements(arr, 4);
             for (int i = 0; i < toShow.Length; i++)
             {
                 Console.WriteLine(toShow[i]);

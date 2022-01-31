@@ -7,7 +7,7 @@ using System.Numerics;
 
 namespace CodeWarsKatas2022
 {
-    internal class BaisicKatas
+    public class BaisicKatas
     {
         public static string SwitchItUp(int number)
         {

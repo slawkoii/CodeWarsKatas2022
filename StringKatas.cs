@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CodeWarsKatas2022
 {
-    internal class StringKatas
+    public class StringKatas
     {
         public static object[] IsVow(object[] a)
         {
