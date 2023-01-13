@@ -58,5 +58,21 @@ namespace CodeWarsKatas2022
 
             return result;
         }
+
+        public static IEnumerable<string> GooseFilter(IEnumerable<string> birds)
+        {
+            // return IEnumerable of string containing all of the strings in the input collection, except those that match strings in geese
+            string[] geese = new string[] { "African", "Roman Tufted", "Toulouse", "Pilgrim", "Steinbacher" };
+
+            return birds.Except(geese);
+        }
+
+        public static int Grow(int[] x)
+        {
+            int result = 1;
+            for (int i = 0; i < x.Length; i++)
+                result *= x[i];
+            return result;
+        }
     }
 }

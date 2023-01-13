@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CodeWarsKatas2022
@@ -29,6 +31,19 @@ namespace CodeWarsKatas2022
 
         public static bool Feast(string beast, string dish) => ((beast.Substring(0, 1) == dish.Substring(0, 1)) && (beast.Substring(beast.Length - 1, 1) == (dish.Substring(dish.Length - 1, 1))));
 
-    
+        public static string RepeatStr(int n, string s)
+        {
+           string response = string.Empty;
+           for(int i = 0; i < n; i++)
+                response += s;
+            return response;
+        }
+
+        public static int ConsonantCount(string str)
+        {            
+            str = Regex.Replace(str, "[a e i o u 0-9 .,()!#$%&'*+/=?^_`{|}~-]", string.Empty);            
+            return str.Length;
+        }
+
     }
 }
