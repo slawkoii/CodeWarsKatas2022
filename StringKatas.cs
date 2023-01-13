@@ -45,5 +45,19 @@ namespace CodeWarsKatas2022
             return str.Length;
         }
 
+        public static string StringsSum(string s1, string s2)
+        {
+            int response = 0;
+            if (int.TryParse(s1, out int result1))
+                response += result1;
+            else response += 0;
+
+            if( int.TryParse(s2, out int result2))
+                response +=result2;
+            else response += 0;  
+            
+            return response.ToString();
+        }
+
     }
 }
