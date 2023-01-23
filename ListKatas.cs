@@ -32,5 +32,20 @@ namespace CodeWarsKatas2022
             }
             return result;
         }
+
+        public static IEnumerable<IEnumerable<int>> EachCons(int[] list, int n)
+        {
+            List<List<int>> result = new List<List<int>>();
+
+            for (int i = 0; i <= list.Length - n; i++)
+            {
+                result.Add(new List<int>());
+                for (int j = 0; j < n; j++)
+                {
+                    result[i].Add(list[i + j]);
+                }                 
+            }
+            return result;
+        }
     }
 }

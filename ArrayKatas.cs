@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -74,5 +75,30 @@ namespace CodeWarsKatas2022
                 result *= x[i];
             return result;
         }
+
+        public static long RowSumOddNumbers(long n) => (long)Math.Pow(n, 3);
+
+        public static bool HasSurvived(int[] attackers, int[] defenders)
+        {                       
+            int asurvie = 0;
+            int dsurvie = 0;
+
+            if (attackers.Length > defenders.Length)
+                Array.Resize(ref defenders, attackers.Length);
+            else
+                Array.Resize(ref attackers, defenders.Length);                     
+          
+             for(int i= 0; i < attackers.Length; i++)
+                {
+                    if (attackers[i] > defenders[i] )  asurvie++; 
+                    else dsurvie++;                        
+                }          
+            
+            if(asurvie > dsurvie) { return false; }
+            if(attackers.Sum()<=defenders.Sum()){ return true; }
+            else return false;
+            
+        }
+
     }
 }

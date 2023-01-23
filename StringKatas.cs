@@ -59,5 +59,8 @@ namespace CodeWarsKatas2022
             return response.ToString();
         }
 
+        public static string AreYouPlayingBanjo(string name) =>
+            (char.ToLower(name[0]).Equals('r')) ? name + " plays banjo" : name + " does not play banjo";
+        
     }
 }

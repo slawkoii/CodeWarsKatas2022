@@ -9,6 +9,7 @@ namespace CodeWarsKatas2022
 {
     public class BaisicKatas
     {
+        
         public static string SwitchItUp(int number)
         {
             Dictionary<int, string> numbers = new Dictionary<int, string>
@@ -56,7 +57,13 @@ namespace CodeWarsKatas2022
         // and returns the square of that double
         public static double Square(double a) => Math.Pow(a, 2);
 
-        public static int Litres(double time) => (int)Math.Round(time * 0.5, MidpointRounding.ToNegativeInfinity);       
+        public static int Litres(double time) => (int)Math.Round(time * 0.5, MidpointRounding.ToNegativeInfinity);
+
+        public static int HowManyLightsabersDoYouOwn(string name) => name == "Zach" ? 18 : 0;
+
+        public static int Mango(int quantity, int price) => (quantity - (int)Math.Round((decimal)quantity / 3)) * price;
+
+        public static Dictionary<string, string> Mystery() => new Dictionary<string, string> { { "sanity", "hello" } };        
 
     }
 }
