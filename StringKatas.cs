@@ -61,6 +61,10 @@ namespace CodeWarsKatas2022
 
         public static string AreYouPlayingBanjo(string name) =>
             (char.ToLower(name[0]).Equals('r')) ? name + " plays banjo" : name + " does not play banjo";
+
+        public static string buildString(string[] args) => String.Format("I like {0}!", String.Join(", ", args));        
+           
         
+
     }
 }

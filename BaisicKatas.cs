@@ -63,7 +63,9 @@ namespace CodeWarsKatas2022
 
         public static int Mango(int quantity, int price) => (quantity - (int)Math.Round((decimal)quantity / 3)) * price;
 
-        public static Dictionary<string, string> Mystery() => new Dictionary<string, string> { { "sanity", "hello" } };        
+        public static Dictionary<string, string> Mystery() => new Dictionary<string, string> { { "sanity", "hello" } };
+
+        public static int SaleHotDogs(int n) => n < 5 ? 100 * n : (n >= 5 && n < 10) ? n * 95 : n * 90;        
 
     }
 }
