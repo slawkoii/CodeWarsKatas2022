@@ -9,14 +9,15 @@ namespace CodeWarsKatas2022
     {
         static void Main(string[] args)
         {
-            var arr = new object[] { 'a', 'b', 'c', 'd', 'e' };
-            object[] toShow = ArrayKatas.TakeFirstElements(arr, 3);
+            double[] toShow = new double[] { 17, 16, 16, 16, 16, 15, 17, 17, 15, 5, 17, 17, 16 };
+            //double[] toShow = new double[] { };
             for (int i = 0; i < toShow.Length; i++)
             {
                 Console.WriteLine(toShow[i]);
             }
 
-
+            Console.WriteLine(ArrayKatas.FindAverage(toShow));
+            
         }
     }
 }

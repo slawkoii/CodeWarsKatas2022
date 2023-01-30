@@ -12,7 +12,7 @@ namespace CodeWarsKatas2022
         
         public static string SwitchItUp(int number)
         {
-            Dictionary<int, string> numbers = new Dictionary<int, string>
+            Dictionary<int, string> numbers = new()
             {
                 {1,"One"}, {2,"Two"}, {3,"Three"}, {4, "Four"}, {5,"Five"}, {6,"Six"}, {7,"Seven"}, {8,"Eight"}, {9,"Nine"}, {0,"Zero"},
             };
@@ -63,9 +63,22 @@ namespace CodeWarsKatas2022
 
         public static int Mango(int quantity, int price) => (quantity - (int)Math.Round((decimal)quantity / 3)) * price;
 
-        public static Dictionary<string, string> Mystery() => new Dictionary<string, string> { { "sanity", "hello" } };
+        public static Dictionary<string, string> Mystery() => new() { { "sanity", "hello" } };
 
-        public static int SaleHotDogs(int n) => n < 5 ? 100 * n : (n >= 5 && n < 10) ? n * 95 : n * 90;        
+        public static int SaleHotDogs(int n) => n < 5 ? 100 * n : (n >= 5 && n < 10) ? n * 95 : n * 90;
+
+        public static bool CheckForFactor(int num, int factor) => num % factor == 0;
+
+        public static string WhatDay(int n)
+        {
+            Dictionary<int, string> weekdays = new()
+            {
+                {1, "Sunday"}, {2,"Monday"}, {3,"Tuesday"}, {4, "Wednesday"}, {5,"Thursday"}, {6,"Friday"}, {7,"Saturday"},
+            };
+            if (weekdays.TryGetValue(n, out string result)) return result;
+            else return "Wrong, please enter a number between 1 and 7";
+          
+        }
 
     }
 }
