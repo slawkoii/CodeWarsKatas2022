@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Numerics;
+using System.Formats.Asn1;
 
 namespace CodeWarsKatas2022
 {
@@ -76,9 +77,19 @@ namespace CodeWarsKatas2022
                 {1, "Sunday"}, {2,"Monday"}, {3,"Tuesday"}, {4, "Wednesday"}, {5,"Thursday"}, {6,"Friday"}, {7,"Saturday"},
             };
             if (weekdays.TryGetValue(n, out string result)) return result;
-            else return "Wrong, please enter a number between 1 and 7";
-          
+            else return "Wrong, please enter a number between 1 and 7";          
         }
 
+        public static uint Hotpo(uint n)
+        {
+            uint count = 0;
+            while(n!=1)
+            {
+                if (n % 2 == 0) n = n / 2;
+                else n = 3 * n + 1;
+                count++;
+            }
+            return count;
+        }
     }
 }
