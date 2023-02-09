@@ -100,8 +100,36 @@ namespace CodeWarsKatas2022
             
         }
 
-        public static double FindAverage(double[] array) => (array.Length == 0) ? 0 : array.Average();       
+        public static double FindAverage(double[] array) => (array.Length == 0) ? 0 : array.Average();
 
-       
+        public static long[] Digitize(long n)
+        {
+            int length = n.ToString().Length;
+            long[] result = new long[length];
+
+            for (int i = 0; i < length; i++)
+            {
+                result[i] = n % 10;
+                n /= 10;
+            }
+            return result;
+        }
+
+        public static long[] Digitize2(long n)
+        {
+            var x = n.ToString().ToCharArray().Reverse().Select(x => Convert.ToInt64(x.ToString())).ToArray();
+            //var y = x.Select(x => Convert.ToInt64(x)).Reverse().ToArray();
+            return x;
+        }
+
+        public static bool None(int[] arr, Func<int, bool> fun)
+        {
+            //bool response = true;
+            foreach (var i in arr)
+            {
+                if (fun(i)) return false; // response=false; 
+            }
+            return true;
+        }
     }
 }

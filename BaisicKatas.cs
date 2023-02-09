@@ -83,13 +83,30 @@ namespace CodeWarsKatas2022
         public static uint Hotpo(uint n)
         {
             uint count = 0;
-            while(n!=1)
+            while (n != 1)
             {
-                if (n % 2 == 0) n = n / 2;
+                if (n % 2 == 0) n /= 2;
                 else n = 3 * n + 1;
                 count++;
             }
             return count;
+        }
+
+        public static double EvalObject(double value1, double value2, char operation)
+        {
+            double result = 0;
+            switch (operation)
+            {
+                case '+': return _ = value1 + value2;
+                case '-': return _ = value1 - value2;
+                case '/': return _ = value1 / value2;
+                case '*': return _ = value1 * value2;
+                case '%': return _ = value1 % value2;
+                case '^': return _ = Math.Pow(value1, value2);
+                default:
+                    break;
+            }
+            return result;
         }
     }
 }
