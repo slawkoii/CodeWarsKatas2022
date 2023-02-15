@@ -62,9 +62,25 @@ namespace CodeWarsKatas2022
         public static string AreYouPlayingBanjo(string name) =>
             (char.ToLower(name[0]).Equals('r')) ? name + " plays banjo" : name + " does not play banjo";
 
-        public static string buildString(string[] args) => String.Format("I like {0}!", String.Join(", ", args));        
-           
-        
+        public static string buildString(string[] args) => String.Format("I like {0}!", String.Join(", ", args));
+
+        public static bool IsOpposite(string s1, string s2)
+        {
+            return s1 != string.Empty && string.Concat(s1.Select(x => char.IsLower(x) ? char.ToUpper(x) : char.ToLower(x))) == s2;
+        }
+
+        //returnig numbers only from the string 
+        public static int getNumberFromString(string s)
+        {
+            
+            var response = string.Join(null, Regex.Split(s, "[^\\d]"));
+            _ = int.TryParse(response, out int result);
+            return result;
+        }
+         
+        // only lower case, numbers and underscore allowed to input 
+        public static bool ValidateUsr(string username) => 
+            Regex.IsMatch(username, @"^[a-z0-9_]+$") && username.Length > 3 && username.Length < 17;
 
     }
 }

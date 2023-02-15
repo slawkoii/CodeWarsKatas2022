@@ -124,12 +124,22 @@ namespace CodeWarsKatas2022
 
         public static bool None(int[] arr, Func<int, bool> fun)
         {
-            //bool response = true;
+
             foreach (var i in arr)
             {
-                if (fun(i)) return false; // response=false; 
+                if (fun(i)) return false;
             }
             return true;
+        }
+
+        public static string MultiTable(int number)
+        {
+            string result = "";
+            for(int i = 1; i <= 10;i++) 
+            {
+                result = result + i .ToString() +" * " + number.ToString() + " = " + (number * (i)).ToString() + "\n";
+            }
+            return result.Substring(0,result.Length-1);
         }
     }
 }
