@@ -15,7 +15,7 @@ namespace CodeWarsKatas2022
             //{
            //     Console.WriteLine(toShow[i]);
            // }
-            Console.WriteLine(StringKatas.getNumberFromString("this is number: 7"));
+            Console.WriteLine(BaisicKatas.binToDec("0"));
             Console.WriteLine("Koniec");
             
         }

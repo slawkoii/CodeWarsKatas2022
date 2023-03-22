@@ -108,5 +108,22 @@ namespace CodeWarsKatas2022
             }
             return result;
         }
+
+        public static int binToDec(string s)
+        {
+            int result = 0;
+            for (int i = 0; i < s.Length; i++)
+            {
+                if (s[i] == '1')
+                {
+                    result += (int)Math.Pow(2, s.Length - i - 1);
+                }
+            }
+            return result;
+        }
+
+        public static string ChromosomeCheck(string sperm) =>
+            sperm == "XX" ? "Congratulations! You're going to have a daughter." : "Congratulations! You're going to have a son.";
+       
     }
 }

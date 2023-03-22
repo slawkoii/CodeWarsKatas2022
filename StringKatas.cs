@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -77,10 +80,55 @@ namespace CodeWarsKatas2022
             _ = int.TryParse(response, out int result);
             return result;
         }
-         
-        // only lower case, numbers and underscore allowed to input 
-        public static bool ValidateUsr(string username) => 
-            Regex.IsMatch(username, @"^[a-z0-9_]+$") && username.Length > 3 && username.Length < 17;
+
+        // only lower case, numbers and underscore allowed to input. Lenght is from 4 to 16 
+        public static bool ValidateUsr(string username) =>
+            Regex.IsMatch(username, @"^[a-z0-9_]{4,16}$");
+
+        public static bool Digit(string s) => Regex.IsMatch(s, "^[0-9]$");
+
+        public static string StringClean(string s) => string.Join(null, Regex.Split(s, "[0-9]"));
+
+        public static int LowercaseCountCheck(string s) => String.Join(null, Regex.Matches(s, "[a-z]")).Length;
+
+        public static int LowercaseCountCheck2(string s) => s.Count(c => char.IsLower(c));
+
+        public static bool IsLockNessMonster(string sentence)
+        {
+            string pattern = "( tree fiddy|3.50|three fifty)";
+            return Regex.IsMatch(sentence, pattern, RegexOptions.IgnoreCase);
+        }
+
+        public static string FormatMoney(double amount) =>
+            "$" + amount.ToString("F2", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
+
+        public static string ShortLongShort(string a, string b) => (a.Length >= b.Length) ?  b + a + b : a + b + a;
+
+        readonly string[] Deck =
+        {
+           "2♣", "3♣", "4♣", "5♣", "6♣", "7♣", "8♣", "9♣", "10♣", "J♣", "Q♣", "K♣", "A♣",
+           "2♦", "3♦", "4♦", "5♦", "6♦", "7♦", "8♦", "9♦", "10♦", "J♦", "Q♦", "K♦", "A♦",
+           "2♥", "3♥", "4♥", "5♥", "6♥", "7♥", "8♥", "9♥", "10♥", "J♥", "Q♥", "K♥", "A♥",
+           "2♠", "3♠", "4♠", "5♠", "6♠", "7♠", "8♠", "9♠", "10♠", "J♠", "Q♠", "K♠", "A♠"
+        };
+
+        public static string DefineSuit(string card)
+        {            
+            switch (card.Substring(card.Length-1,1))
+            {
+                case "♣": return "clubs";
+                case "♦": return "diamonds";
+                case "♥": return "hearts";
+                default: break;
+            }
+            return "spades";
+        }
+
+        public static string SayHello(string[] name, string city, string state)
+        {
+            string fullName = string.Join(" ", name);
+            return $"Hello, {fullName}! Welcome to {city}, {state}!";
+        }
 
     }
 }

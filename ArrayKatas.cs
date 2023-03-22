@@ -139,7 +139,27 @@ namespace CodeWarsKatas2022
             {
                 result = result + i .ToString() +" * " + number.ToString() + " = " + (number * (i)).ToString() + "\n";
             }
-            return result.Substring(0,result.Length-1);
+            return result.Substring(0, result.Length - 1);
+        }
+
+        public static string Well(string[] x)
+        {
+            int goodIdeas = 0;
+            string response = "I smell a series!";
+            foreach (string v in x) 
+            {
+                if(v == "good") goodIdeas++;
+            }
+            switch(goodIdeas) 
+            {
+                case 0: return "Fail!";
+                case 1: return "Publish!";
+                case 2: return "Publish!";
+                default:
+                    break;
+
+            }
+            return response;
         }
     }
 }
