@@ -130,5 +130,25 @@ namespace CodeWarsKatas2022
             return $"Hello, {fullName}! Welcome to {city}, {state}!";
         }
 
+        public static string ArrowFunc(int[] arr)
+        {
+             return string.Join("", arr.Select(c => Convert.ToChar(c)  ).ToArray());
+        }
+
+        public static string ArrowFuncVersion2(int[] arr)
+        {
+            string response = string.Empty;
+            foreach(var number in arr)
+            {
+                response += Convert.ToChar(number);
+            }
+            return response;
+        }
+
+        public static string Remove(string s) =>
+            s.Substring(s.Length - 1, 1) == "!" ? s.Substring(0, s.Length - 1) : s;
+        
+
+
     }
 }

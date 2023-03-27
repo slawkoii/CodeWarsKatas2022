@@ -124,6 +124,18 @@ namespace CodeWarsKatas2022
 
         public static string ChromosomeCheck(string sperm) =>
             sperm == "XX" ? "Congratulations! You're going to have a daughter." : "Congratulations! You're going to have a son.";
-       
+
+        public static bool AmIWilson(int p)
+        {
+            double silnia = 1;
+            for(int i = p - 1; i > 1; i--)
+            {
+                silnia *= i;
+            }
+            double result = (silnia + 1) / (p * p);
+
+            return (int)result == result;
+        }
+
     }
 }

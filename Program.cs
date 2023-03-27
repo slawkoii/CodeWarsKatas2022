@@ -15,7 +15,7 @@ namespace CodeWarsKatas2022
             //{
            //     Console.WriteLine(toShow[i]);
            // }
-            Console.WriteLine(BaisicKatas.binToDec("0"));
+            Console.WriteLine(BaisicKatas.AmIWilson(13));
             Console.WriteLine("Koniec");
             
         }
