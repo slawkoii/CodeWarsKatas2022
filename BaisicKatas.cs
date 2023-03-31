@@ -137,5 +137,21 @@ namespace CodeWarsKatas2022
             return (int)result == result;
         }
 
+        public static object Animals(int heads, int legs)
+        {
+            if (legs % 2 != 0)
+                return "No solutions";
+
+            int cows = legs / 2 - heads;
+            int chickens = heads - cows;
+
+            return (cows < 0 || chickens < 0) ? (object)"No solutions" : new int[2] { chickens, cows };
+        }
+
+        public static object PlayerRankUp(int points) => (points >= 100)         
+            ? "Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up." : false;
+
     }
+
+    
 }

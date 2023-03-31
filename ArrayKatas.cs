@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace CodeWarsKatas2022
@@ -160,6 +161,25 @@ namespace CodeWarsKatas2022
 
             }
             return response;
+            
+        }
+
+        public static long StairsIn20(int[][] stairs)
+        {
+            long result = 0;
+            foreach (var stair in stairs)
+            {
+                result += stair.Sum();
+            }
+
+            return result*20;
+        }
+
+        public static string UefaEuro2016(string[] teams, int[] scores)
+        {
+            if (scores[0] == scores[1]) return $"At match {teams[0]} - {teams[1]}, teams played draw."; 
+            if (scores[0] > scores[1])  return $"At match {teams[0]} - {teams[1]}, {teams[0]} won!"; 
+            else return $"At match {teams[0]} - {teams[1]}, {teams[1]} won!";
         }
     }
 }
