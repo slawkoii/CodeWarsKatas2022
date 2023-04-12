@@ -181,5 +181,22 @@ namespace CodeWarsKatas2022
             if (scores[0] > scores[1])  return $"At match {teams[0]} - {teams[1]}, {teams[0]} won!"; 
             else return $"At match {teams[0]} - {teams[1]}, {teams[1]} won!";
         }
+
+        public static bool LogicalCalc(bool[] array, string op)
+        {
+            if (op == "AND")
+                return array.All(x => x);
+            else if (op == "OR")
+                return array.Any(x => x);
+            else
+                return array.Aggregate((i, j) => i ^ j);
+        }
+
+        public static bool All(int[] arr, Func<int, bool> fun) => arr.All(fun);
+
+        public static string ArrayToChange(string s) =>        
+            s.Split(',').Length < 3 ? null : string.Join(" ", s.Split(',')[1..^1]);
+        
+
     }
 }
