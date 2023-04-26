@@ -1,23 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
-
-namespace CodeWarsKatas2022
+﻿namespace CodeWarsKatas2022
 {
     public class ArrayKatas
     {
         public static int Min(int[] list) => list.Min();
         public static int Max(int[] list) => list.Max();
 
-        public static void ShowAnArray(object[] tablica)
+        public static void ShowAnArray(string[] table)
         {
-            for (int i = 0; i < tablica.Length; i++)
+            foreach (var item in table)
             {
-                Console.WriteLine(tablica[i]);
+                Console.WriteLine(item);
             }
         }
 
@@ -80,25 +72,25 @@ namespace CodeWarsKatas2022
         public static long RowSumOddNumbers(long n) => (long)Math.Pow(n, 3);
 
         public static bool HasSurvived(int[] attackers, int[] defenders)
-        {                       
+        {
             int asurvie = 0;
             int dsurvie = 0;
 
             if (attackers.Length > defenders.Length)
                 Array.Resize(ref defenders, attackers.Length);
             else
-                Array.Resize(ref attackers, defenders.Length);                     
-          
-             for(int i= 0; i < attackers.Length; i++)
-                {
-                    if (attackers[i] > defenders[i] )  asurvie++; 
-                    else dsurvie++;                        
-                }          
-            
-            if(asurvie > dsurvie) { return false; }
-            if(attackers.Sum()<=defenders.Sum()){ return true; }
+                Array.Resize(ref attackers, defenders.Length);
+
+            for (int i = 0; i < attackers.Length; i++)
+            {
+                if (attackers[i] > defenders[i]) asurvie++;
+                else dsurvie++;
+            }
+
+            if (asurvie > dsurvie) { return false; }
+            if (attackers.Sum() <= defenders.Sum()) { return true; }
             else return false;
-            
+
         }
 
         public static double FindAverage(double[] array) => (array.Length == 0) ? 0 : array.Average();
@@ -116,12 +108,8 @@ namespace CodeWarsKatas2022
             return result;
         }
 
-        public static long[] Digitize2(long n)
-        {
-            var x = n.ToString().ToCharArray().Reverse().Select(x => Convert.ToInt64(x.ToString())).ToArray();
-            //var y = x.Select(x => Convert.ToInt64(x)).Reverse().ToArray();
-            return x;
-        }
+        public static long[] Digitize2(long n) =>
+             n.ToString().ToCharArray().Reverse().Select(x => Convert.ToInt64(x.ToString())).ToArray();
 
         public static bool None(int[] arr, Func<int, bool> fun)
         {
@@ -136,9 +124,9 @@ namespace CodeWarsKatas2022
         public static string MultiTable(int number)
         {
             string result = "";
-            for(int i = 1; i <= 10;i++) 
+            for (int i = 1; i <= 10; i++)
             {
-                result = result + i .ToString() +" * " + number.ToString() + " = " + (number * (i)).ToString() + "\n";
+                result = result + i.ToString() + " * " + number.ToString() + " = " + (number * (i)).ToString() + "\n";
             }
             return result.Substring(0, result.Length - 1);
         }
@@ -147,11 +135,11 @@ namespace CodeWarsKatas2022
         {
             int goodIdeas = 0;
             string response = "I smell a series!";
-            foreach (string v in x) 
+            foreach (string v in x)
             {
-                if(v == "good") goodIdeas++;
+                if (v == "good") goodIdeas++;
             }
-            switch(goodIdeas) 
+            switch (goodIdeas)
             {
                 case 0: return "Fail!";
                 case 1: return "Publish!";
@@ -161,7 +149,7 @@ namespace CodeWarsKatas2022
 
             }
             return response;
-            
+
         }
 
         public static long StairsIn20(int[][] stairs)
@@ -172,13 +160,13 @@ namespace CodeWarsKatas2022
                 result += stair.Sum();
             }
 
-            return result*20;
+            return result * 20;
         }
 
         public static string UefaEuro2016(string[] teams, int[] scores)
         {
-            if (scores[0] == scores[1]) return $"At match {teams[0]} - {teams[1]}, teams played draw."; 
-            if (scores[0] > scores[1])  return $"At match {teams[0]} - {teams[1]}, {teams[0]} won!"; 
+            if (scores[0] == scores[1]) return $"At match {teams[0]} - {teams[1]}, teams played draw.";
+            if (scores[0] > scores[1]) return $"At match {teams[0]} - {teams[1]}, {teams[0]} won!";
             else return $"At match {teams[0]} - {teams[1]}, {teams[1]} won!";
         }
 
@@ -194,9 +182,25 @@ namespace CodeWarsKatas2022
 
         public static bool All(int[] arr, Func<int, bool> fun) => arr.All(fun);
 
-        public static string ArrayToChange(string s) =>        
+        public static string ArrayToChange(string s) =>
             s.Split(',').Length < 3 ? null : string.Join(" ", s.Split(',')[1..^1]);
-        
+
+
+        public static string FindNeedle(object[] haystack) =>
+            $"found the needle at position {Array.IndexOf(haystack, "needle")}";
+
+        public static int[] MergeArrays(int[] arr1, int[] arr2)
+        {
+            List<int> result = new List<int>();
+            result.AddRange(arr1);
+            result.AddRange(arr2);
+            result.Sort();
+            return result.Distinct().ToArray();
+        }
+
+        public static string TempleStrings(string obj, string feature) =>
+            obj + " are " + feature;
+
 
     }
 }

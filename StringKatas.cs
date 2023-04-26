@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
-using System.Globalization;
-using System.Linq;
-using System.Net.NetworkInformation;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.RegularExpressions;
-using System.Threading.Tasks;
+﻿using System.Text.RegularExpressions;
 
 namespace CodeWarsKatas2022
 {
@@ -36,15 +27,15 @@ namespace CodeWarsKatas2022
 
         public static string RepeatStr(int n, string s)
         {
-           string response = string.Empty;
-           for(int i = 0; i < n; i++)
+            string response = string.Empty;
+            for (int i = 0; i < n; i++)
                 response += s;
             return response;
         }
 
         public static int ConsonantCount(string str)
-        {            
-            str = Regex.Replace(str, "[a e i o u 0-9 .,()!#$%&'*+/=?^_`{|}~-]", string.Empty);            
+        {
+            str = Regex.Replace(str, "[a e i o u 0-9 .,()!#$%&'*+/=?^_`{|}~-]", string.Empty);
             return str.Length;
         }
 
@@ -55,10 +46,10 @@ namespace CodeWarsKatas2022
                 response += result1;
             else response += 0;
 
-            if( int.TryParse(s2, out int result2))
-                response +=result2;
-            else response += 0;  
-            
+            if (int.TryParse(s2, out int result2))
+                response += result2;
+            else response += 0;
+
             return response.ToString();
         }
 
@@ -73,9 +64,9 @@ namespace CodeWarsKatas2022
         }
 
         //returnig numbers only from the string 
-        public static int getNumberFromString(string s)
+        public static int GetNumberFromString(string s)
         {
-            
+
             var response = string.Join(null, Regex.Split(s, "[^\\d]"));
             _ = int.TryParse(response, out int result);
             return result;
@@ -102,7 +93,7 @@ namespace CodeWarsKatas2022
         public static string FormatMoney(double amount) =>
             "$" + amount.ToString("F2", System.Globalization.CultureInfo.GetCultureInfo("en-US"));
 
-        public static string ShortLongShort(string a, string b) => (a.Length >= b.Length) ?  b + a + b : a + b + a;
+        public static string ShortLongShort(string a, string b) => (a.Length >= b.Length) ? b + a + b : a + b + a;
 
         readonly string[] Deck =
         {
@@ -113,8 +104,8 @@ namespace CodeWarsKatas2022
         };
 
         public static string DefineSuit(string card)
-        {            
-            switch (card.Substring(card.Length-1,1))
+        {
+            switch (card.Substring(card.Length - 1, 1))
             {
                 case "♣": return "clubs";
                 case "♦": return "diamonds";
@@ -132,13 +123,13 @@ namespace CodeWarsKatas2022
 
         public static string ArrowFunc(int[] arr)
         {
-             return string.Join("", arr.Select(c => Convert.ToChar(c)  ).ToArray());
+            return string.Join("", arr.Select(c => Convert.ToChar(c)).ToArray());
         }
 
         public static string ArrowFuncVersion2(int[] arr)
         {
             string response = string.Empty;
-            foreach(var number in arr)
+            foreach (var number in arr)
             {
                 response += Convert.ToChar(number);
             }
@@ -147,7 +138,7 @@ namespace CodeWarsKatas2022
 
         public static string Remove(string s) =>
             s.Substring(s.Length - 1, 1) == "!" ? s.Substring(0, s.Length - 1) : s;
-        
+
 
 
     }

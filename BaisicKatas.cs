@@ -1,16 +1,11 @@
-﻿using System;
+﻿using System.Numerics;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Numerics;
-using System.Formats.Asn1;
 
 namespace CodeWarsKatas2022
 {
     public class BaisicKatas
     {
-        
+
         public static string SwitchItUp(int number)
         {
             Dictionary<int, string> numbers = new()
@@ -77,7 +72,7 @@ namespace CodeWarsKatas2022
                 {1, "Sunday"}, {2,"Monday"}, {3,"Tuesday"}, {4, "Wednesday"}, {5,"Thursday"}, {6,"Friday"}, {7,"Saturday"},
             };
             if (weekdays.TryGetValue(n, out string result)) return result;
-            else return "Wrong, please enter a number between 1 and 7";          
+            else return "Wrong, please enter a number between 1 and 7";
         }
 
         public static uint Hotpo(uint n)
@@ -109,7 +104,7 @@ namespace CodeWarsKatas2022
             return result;
         }
 
-        public static int binToDec(string s)
+        public static int BinToDec(string s)
         {
             int result = 0;
             for (int i = 0; i < s.Length; i++)
@@ -128,7 +123,7 @@ namespace CodeWarsKatas2022
         public static bool AmIWilson(int p)
         {
             double silnia = 1;
-            for(int i = p - 1; i > 1; i--)
+            for (int i = p - 1; i > 1; i--)
             {
                 silnia *= i;
             }
@@ -148,10 +143,50 @@ namespace CodeWarsKatas2022
             return (cows < 0 || chickens < 0) ? (object)"No solutions" : new int[2] { chickens, cows };
         }
 
-        public static object PlayerRankUp(int points) => (points >= 100)         
+        public static object PlayerRankUp(int points) => (points >= 100)
             ? "Well done! You have advanced to the qualifying stage. Win 2 out of your next 3 games to rank up." : false;
+
+        public static bool Xor(bool a, bool b) => a != b;
+
+        public static string Leo(int oscar)
+        {
+            string result = "Leo got one already!";
+            if (oscar == 88) result = "Leo finally won the oscar! Leo is happy";
+            if (oscar == 86) result = "Not even for Wolf of wallstreet?!";
+            if (oscar < 88 && oscar != 88 && oscar != 86) result = "When will you give Leo an Oscar?";
+
+            return result;
+        }
+
+        public static int UniTotal(string str) => str.Sum(x=>x);
+
+        public static double FuelPrice(double litres, double pricePerLitre)
+        {
+
+            double discount = (int)litres / 2 * 0.05;
+            if (discount > 0.25) discount = 0.25;
+            
+            return Math.Round(litres*(pricePerLitre-discount), 2);
+        }
+
+        public static bool ValidateHello(string greetings)
+        {
+            List<string> greetOptions = new() 
+            {
+                {"hello" }, {"ciao"}, {"salut"}, {"hallo"},
+                { "hola" }, {"ahoj"}, {"czesc"}
+            };
+            return greetOptions.Any(greetings.ToLower().Contains);
+        }
+
+        public static readonly string[] Websites = Enumerable.Repeat("codewars", 1000).ToArray();
+
+        // function which using recursion for factorial calculation 
+        public static ulong Factorial(int n) => (n == 0 || n == 1) ? 1 : (ulong)n * Factorial(n - 1);
+          
+        
+
 
     }
 
-    
 }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CodeWarsKatas2022
+﻿namespace CodeWarsKatas2022
 {
     public class ListKatas
     {
@@ -43,7 +37,7 @@ namespace CodeWarsKatas2022
                 for (int j = 0; j < n; j++)
                 {
                     result[i].Add(list[i + j]);
-                }                 
+                }
             }
             return result;
         }
